@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>THIAGO.DEV // CMS</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
+
+    <div class="background-grid"></div>
+
+    <div class="scanlines"></div>
+
+
+    <!-- =====================================================
+         APPLICATION
+    ====================================================== -->
+
+    <div class="app">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- LOGO -->
+
+            <div class="brand">
+
+                <div class="brand-symbol">
+                    &lt;/&gt;
+                </div>
+
+                <div>
+
+                    <div class="brand-name">
+                        THIAGO<span>.DEV</span>
+                    </div>
+
+                    <div class="brand-subtitle">
+                        CONTROL SYSTEM
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    SYSTEM ONLINE
+                </span>
+
+            </div>
+
+
+            <!-- MENU -->
+
+            <nav class="menu">
+
+                <div class="menu-label">
+                    MANAGEMENT
+                </div>
+
+
+                <button
+                    class="menu-item active"
+                    data-section="dashboard"
+                >
+
+                    <span class="menu-icon">
+                        ◈
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="menu-item"
+                    data-section="profile"
+                >
+
+                    <span class="menu-icon">
+                        ◉
+                    </span>
+
+                    <span>
+                        Perfil
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="menu-item"
+                    data-section="projects"
+                >
+
+                    <span class="menu-icon">
+                        ▣
+                    </span>
+
+                    <span>
+                        Projetos
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="menu-item"
+                    data-section="skills"
+                >
+
+                    <span class="menu-icon">
+                        ◇
+                    </span>
+
+                    <span>
+                        Skills
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="menu-item"
+                    data-section="courses"
+                >
+
+                    <span class="menu-icon">
+                        ▤
+                    </span>
+
+                    <span>
+                        Cursos
+                    </span>
+
+                </button>
+
+
+                <div class="menu-label menu-label-spaced">
+                    SYSTEM
+                </div>
+
+
+                <button
+                    class="menu-item"
+                    data-section="settings"
+                >
+
+                    <span class="menu-icon">
+                        ⚙
+                    </span>
+
+                    <span>
+                        Configurações
+                    </span>
+
+                </button>
+
+
+            </nav>
+
+
+            <!-- USER -->
+
+            <div class="sidebar-footer">
+
+                <div class="admin-avatar">
+                    T
+                </div>
+
+                <div class="admin-info">
+
+                    <strong>
+                        THIAGO
+                    </strong>
+
+                    <span>
+                        ADMINISTRATOR
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </aside>
+
+
+        <!-- =================================================
+             MAIN
+        ================================================== -->
+
+        <main class="main">
+
+
+            <!-- HEADER -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <div class="breadcrumb">
+                        SYSTEM / <span id="currentSection">
+                            DASHBOARD
+                        </span>
+                    </div>
+
+                    <h1 id="pageTitle">
+                        Dashboard
+                    </h1>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+                    <div class="api-status">
+
+                        <span class="status-dot"></span>
+
+                        API
+                        <strong>
+                            ONLINE
+                        </strong>
+
+                    </div>
+
+
+                    <a
+                        href="../"
+                        target="_blank"
+                        class="view-site"
+                    >
+                        VISUALIZAR SITE ↗
+                    </a>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 CONTENT
+            ================================================== -->
+
+            <div class="content">
+
+
+                <!-- =============================================
+                     DASHBOARD
+                ============================================== -->
+
+                <section
+                    id="section-dashboard"
+                    class="cms-section active"
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                CONTROL CENTER
+                            </span>
+
+                            <h2>
+                                Dashboard
+                            </h2>
+
+                            <p>
+                                Gerencie o conteúdo do seu
+                                portfólio em um único lugar.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stats-grid">
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                ▣
+                            </div>
+
+                            <div class="stat-value"
+                                 id="statProjects">
+                                --
+                            </div>
+
+                            <div class="stat-label">
+                                PROJETOS
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                ◇
+                            </div>
+
+                            <div class="stat-value"
+                                 id="statSkills">
+                                --
+                            </div>
+
+                            <div class="stat-label">
+                                SKILLS
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                ▤
+                            </div>
+
+                            <div class="stat-value"
+                                 id="statCourses">
+                                --
+                            </div>
+
+                            <div class="stat-label">
+                                CURSOS
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                ●
+                            </div>
+
+                            <div class="stat-value online-value">
+                                ONLINE
+                            </div>
+
+                            <div class="stat-label">
+                                API STATUS
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="dashboard-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="eyebrow">
+                                    SYSTEM
+                                </span>
+
+                                <h3>
+                                    Informações rápidas
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="system-info">
+
+                            <div class="info-row">
+
+                                <span>
+                                    BACKEND
+                                </span>
+
+                                <strong>
+                                    Node.js / Express
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span>
+                                    DATABASE
+                                </span>
+
+                                <strong>
+                                    Supabase
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span>
+                                    IMAGE STORAGE
+                                </span>
+
+                                <strong>
+                                    Cloudinary
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span>
+                                    ENVIRONMENT
+                                </span>
+
+                                <strong>
+                                    DEVELOPMENT
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     PROFILE
+                ============================================== -->
+
+                <section
+                    id="section-profile"
+                    class="cms-section"
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                PERSONAL DATA
+                            </span>
+
+                            <h2>
+                                Perfil
+                            </h2>
+
+                            <p>
+                                Informações exibidas no
+                                seu portfólio.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-panel">
+
+                        <form id="profileForm">
+
+
+                            <div class="form-grid">
+
+
+                                <div class="field">
+
+                                    <label>
+                                        NOME
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="profileName"
+                                        placeholder="Seu nome"
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label>
+                                        IDADE
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="profileAge"
+                                        placeholder="21"
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label>
+                                        PROFISSÃO
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="profileRole"
+                                        placeholder="Full Stack Developer"
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label>
+                                        LOCALIZAÇÃO
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="profileLocation"
+                                        placeholder="Brasil"
+                                    >
+
+                                </div>
+
+
+                                <div class="field field-full">
+
+                                    <label>
+                                        DESCRIÇÃO CURTA
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="profileShortDescription"
+                                        placeholder="Descrição que aparecerá no início do site"
+                                    >
+
+                                </div>
+
+
+                                <div class="field field-full">
+
+                                    <label>
+                                        SOBRE MIM
+                                    </label>
+
+                                    <textarea
+                                        id="profileAbout"
+                                        rows="6"
+                                        placeholder="Conte um pouco sobre você..."
+                                    ></textarea>
+
+                                </div>
+
+
+                                <div class="field field-full">
+
+                                    <label>
+                                        FOCO PROFISSIONAL
+                                    </label>
+
+                                    <textarea
+                                        id="profileFocus"
+                                        rows="4"
+                                        placeholder="Desenvolvimento web, sistemas..."
+                                    ></textarea>
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label>
+                                        E-MAIL
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="profileEmail"
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label>
+                                        TELEFONE
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="profilePhone"
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label>
+                                        GITHUB
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="profileGithub"
+                                        placeholder="https://github.com/..."
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label>
+                                        LINKEDIN
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="profileLinkedin"
+                                        placeholder="https://linkedin.com/in/..."
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label>
+                                        INSTAGRAM
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="profileInstagram"
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label>
+                                        WEBSITE
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="profileWebsite"
+                                    >
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="primary-button"
+                                >
+                                    SALVAR ALTERAÇÕES
+                                </button>
+
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     PROJECTS
+                ============================================== -->
+
+                <section
+                    id="section-projects"
+                    class="cms-section"
+                >
+
+                    <div class="section-heading section-heading-row">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                PORTFOLIO CONTENT
+                            </span>
+
+                            <h2>
+                                Projetos
+                            </h2>
+
+                            <p>
+                                Crie, edite, exclua e reorganize
+                                seus projetos.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-button"
+                            id="newProjectButton"
+                        >
+                            + NOVO PROJETO
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="projectsContainer"
+                        class="projects-admin-list"
+                    >
+
+                        <div class="loading">
+                            CARREGANDO PROJETOS...
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     SKILLS
+                ============================================== -->
+
+                <section
+                    id="section-skills"
+                    class="cms-section"
+                >
+
+                    <div class="section-heading section-heading-row">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                TECHNOLOGY STACK
+                            </span>
+
+                            <h2>
+                                Skills
+                            </h2>
+
+                            <p>
+                                Tecnologias e ferramentas
+                                que você domina.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-button"
+                            id="newSkillButton"
+                        >
+                            + NOVA SKILL
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="skillsContainer"
+                        class="skills-admin-grid"
+                    >
+
+                        <div class="loading">
+                            CARREGANDO SKILLS...
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     COURSES
+                ============================================== -->
+
+                <section
+                    id="section-courses"
+                    class="cms-section"
+                >
+
+                    <div class="section-heading section-heading-row">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                EDUCATION
+                            </span>
+
+                            <h2>
+                                Cursos
+                            </h2>
+
+                            <p>
+                                Certificações e formação
+                                profissional.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-button"
+                            id="newCourseButton"
+                        >
+                            + NOVO CURSO
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="coursesContainer"
+                        class="courses-admin-grid"
+                    >
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+                                ▤
+                            </div>
+
+                            <h3>
+                                Módulo em desenvolvimento
+                            </h3>
+
+                            <p>
+                                A API de cursos será conectada
+                                nesta seção.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     SETTINGS
+                ============================================== -->
+
+                <section
+                    id="section-settings"
+                    class="cms-section"
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                SYSTEM
+                            </span>
+
+                            <h2>
+                                Configurações
+                            </h2>
+
+                            <p>
+                                Configurações gerais do CMS.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-panel">
+
+                        <div class="system-info">
+
+                            <div class="info-row">
+
+                                <span>
+                                    API URL
+                                </span>
+
+                                <strong>
+                                    http://localhost:3000/api
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span>
+                                    DATABASE
+                                </span>
+
+                                <strong>
+                                    SUPABASE
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span>
+                                    STORAGE
+                                </span>
+
+                                <strong>
+                                    CLOUDINARY
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+    <!-- =====================================================
+     PROJECT MODAL
+====================================================== -->
+
+<div
+    id="projectModal"
+    class="modal-overlay"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    PROJECT MANAGEMENT
+                </span>
+
+                <h2 id="projectModalTitle">
+                    Novo Projeto
+                </h2>
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeProjectModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="projectForm">
+
+            <input
+                type="hidden"
+                id="projectId"
+            >
+
+
+            <div class="form-grid">
+
+                <!-- TÍTULO -->
+
+                <div class="field field-full">
+
+                    <label>
+                        TÍTULO
+                    </label>
+
+                    <input
+                        type="text"
+                        id="projectTitle"
+                        placeholder="Nome do projeto"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- DESCRIÇÃO -->
+
+                <div class="field field-full">
+
+                    <label>
+                        DESCRIÇÃO
+                    </label>
+
+                    <textarea
+                        id="projectDescription"
+                        rows="5"
+                        placeholder="Descrição do projeto..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- TIPO -->
+
+                <div class="field">
+
+                    <label>
+                        TIPO DO PROJETO
+                    </label>
+
+                    <input
+                        type="text"
+                        id="projectType"
+                        placeholder="WEB APPLICATION"
+                    >
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="field">
+
+                    <label>
+                        STATUS
+                    </label>
+
+                    <select id="projectStatus">
+
+                        <option value="online">
+                            ONLINE
+                        </option>
+
+                        <option value="offline">
+                            OFFLINE
+                        </option>
+
+                        <option value="development">
+                            EM DESENVOLVIMENTO
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- IMAGEM -->
+
+                <div class="field field-full">
+
+                    <label>
+                        URL DA IMAGEM
+                    </label>
+
+                    <input
+                        type="text"
+                        id="projectImage"
+                        placeholder="https://..."
+                    >
+
+                </div>
+
+
+                <!-- URL -->
+
+                <div class="field field-full">
+
+                    <label>
+                        URL DO PROJETO
+                    </label>
+
+                    <input
+                        type="text"
+                        id="projectUrl"
+                        placeholder="https://..."
+                    >
+
+                </div>
+
+
+                <!-- TECNOLOGIAS -->
+
+                <div class="field field-full">
+
+                    <label>
+                        TECNOLOGIAS
+                    </label>
+
+                    <input
+                        type="text"
+                        id="projectTechnologies"
+                        placeholder="HTML, CSS, JavaScript, Node.js"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelProjectButton"
+                >
+                    CANCELAR
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    SALVAR PROJETO
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

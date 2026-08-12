@@ -5,15 +5,18 @@ const router = express.Router();
 const supabase = require("../config/database");
 
 
-/* =========================================
+/* =========================================================
    GET ALL PROJECTS
-========================================= */
+========================================================= */
 
 router.get("/", async (req, res) => {
 
     try {
 
-        const { data, error } = await supabase
+        const {
+            data,
+            error
+        } = await supabase
 
             .from("projects")
 
@@ -63,7 +66,8 @@ router.get("/", async (req, res) => {
 
             success: false,
 
-            error: "Erro interno do servidor."
+            error:
+                "Erro interno do servidor."
 
         });
 
@@ -72,22 +76,30 @@ router.get("/", async (req, res) => {
 });
 
 
-/* =========================================
+/* =========================================================
    POST — CREATE PROJECT
-========================================= */
+========================================================= */
 
 router.post("/", async (req, res) => {
 
     try {
 
         const {
+
             title,
+
             description,
+
             project_type,
+
             image_url,
+
             project_url,
+
             status,
+
             technologies
+
         } = req.body;
 
 
@@ -97,20 +109,24 @@ router.post("/", async (req, res) => {
 
                 success: false,
 
-                error: "O título do projeto é obrigatório."
+                error:
+                    "O título do projeto é obrigatório."
 
             });
 
         }
 
 
-        /* =================================
+        /* ---------------------------------------------
            DESCOBRIR PRÓXIMA POSIÇÃO
-        ================================= */
+        --------------------------------------------- */
 
         const {
+
             data: lastProject,
+
             error: lastError
+
         } = await supabase
 
             .from("projects")
@@ -135,7 +151,8 @@ router.post("/", async (req, res) => {
 
                 success: false,
 
-                error: lastError.message
+                error:
+                    lastError.message
 
             });
 
@@ -143,18 +160,26 @@ router.post("/", async (req, res) => {
 
 
         const nextPosition =
+
+            lastProject &&
             lastProject.length > 0
-                ? lastProject[0].order_position + 1
+
+                ? lastProject[0]
+                    .order_position + 1
+
                 : 1;
 
 
-        /* =================================
+        /* ---------------------------------------------
            CRIAR PROJETO
-        ================================= */
+        --------------------------------------------- */
 
         const {
+
             data,
+
             error
+
         } = await supabase
 
             .from("projects")
@@ -180,8 +205,13 @@ router.post("/", async (req, res) => {
                     status || "offline",
 
                 technologies:
-                    Array.isArray(technologies)
+
+                    Array.isArray(
+                        technologies
+                    )
+
                         ? technologies
+
                         : [],
 
                 order_position:
@@ -202,7 +232,8 @@ router.post("/", async (req, res) => {
 
                 success: false,
 
-                error: error.message
+                error:
+                    error.message
 
             });
 
@@ -240,17 +271,20 @@ router.post("/", async (req, res) => {
 });
 
 
-/* =========================================
+/* =========================================================
    PUT — REORDER PROJECTS
+
    IMPORTANTE:
-   ESTA ROTA PRECISA VIR ANTES DE /:id
-========================================= */
+   Esta rota precisa ficar antes de /:id
+========================================================= */
 
 router.put("/reorder", async (req, res) => {
 
     try {
 
-        const { projects } = req.body;
+        const {
+            projects
+        } = req.body;
 
 
         if (!Array.isArray(projects)) {
@@ -363,33 +397,40 @@ router.put("/reorder", async (req, res) => {
 });
 
 
-/* =========================================
+/* =========================================================
    GET — SINGLE PROJECT
-========================================= */
+========================================================= */
 
 router.get("/:id", async (req, res) => {
 
     try {
 
-        const { id } =
-            req.params;
+        const {
+            id
+        } = req.params;
 
 
         const {
+
             data,
+
             error
+
         } = await supabase
 
             .from("projects")
 
             .select("*")
 
-            .eq("id", id)
+            .eq(
+                "id",
+                id
+            )
 
             .single();
 
 
-        if (error) {
+        if (error || !data) {
 
             return res.status(404).json({
 
@@ -431,26 +472,35 @@ router.get("/:id", async (req, res) => {
 });
 
 
-/* =========================================
+/* =========================================================
    PUT — UPDATE PROJECT
-========================================= */
+========================================================= */
 
 router.put("/:id", async (req, res) => {
 
     try {
 
-        const { id } =
-            req.params;
+        const {
+            id
+        } = req.params;
 
 
         const {
+
             title,
+
             description,
+
             project_type,
+
             image_url,
+
             project_url,
+
             status,
+
             technologies
+
         } = req.body;
 
 
@@ -489,10 +539,13 @@ router.put("/:id", async (req, res) => {
         if (technologies !== undefined) {
 
             updateData.technologies =
+
                 Array.isArray(
                     technologies
                 )
+
                     ? technologies
+
                     : [];
 
         }
@@ -503,31 +556,37 @@ router.put("/:id", async (req, res) => {
 
 
         const {
+
             data,
+
             error
+
         } = await supabase
 
             .from("projects")
 
             .update(updateData)
 
-            .eq("id", id)
+            .eq(
+                "id",
+                id
+            )
 
             .select()
 
             .single();
 
 
-        if (error) {
+        if (error || !data) {
 
             console.error(error);
 
-            return res.status(500).json({
+            return res.status(404).json({
 
                 success: false,
 
                 error:
-                    error.message
+                    "Projeto não encontrado."
 
             });
 
@@ -565,27 +624,37 @@ router.put("/:id", async (req, res) => {
 });
 
 
-/* =========================================
+/* =========================================================
    DELETE — DELETE PROJECT
-========================================= */
+========================================================= */
 
 router.delete("/:id", async (req, res) => {
 
     try {
 
-        const { id } =
-            req.params;
+        const {
+            id
+        } = req.params;
 
 
         const {
+
+            data,
+
             error
+
         } = await supabase
 
             .from("projects")
 
             .delete()
 
-            .eq("id", id);
+            .eq(
+                "id",
+                id
+            )
+
+            .select();
 
 
         if (error) {
@@ -598,6 +667,20 @@ router.delete("/:id", async (req, res) => {
 
                 error:
                     error.message
+
+            });
+
+        }
+
+
+        if (!data || data.length === 0) {
+
+            return res.status(404).json({
+
+                success: false,
+
+                error:
+                    "Projeto não encontrado."
 
             });
 
@@ -632,5 +715,9 @@ router.delete("/:id", async (req, res) => {
 
 });
 
+
+/* =========================================================
+   EXPORT
+========================================================= */
 
 module.exports = router;
