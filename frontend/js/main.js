@@ -152,15 +152,12 @@ function loadProfile(profile) {
     const elements =
         document.querySelectorAll("[data-profile]");
 
-
     elements.forEach(element => {
 
         const property =
             element.dataset.profile;
 
-
         let value;
-
 
         switch (property) {
 
@@ -171,6 +168,14 @@ function loadProfile(profile) {
 
                 break;
 
+            case "name":
+
+                value =
+                    profile.name
+                        ?.trim()
+                        .split(" ")[0];
+
+                break;
 
             case "surname":
 
@@ -183,14 +188,12 @@ function loadProfile(profile) {
 
                 break;
 
-
             default:
 
                 value =
                     profile[property];
 
         }
-
 
         if (
             value !== undefined &&
@@ -205,7 +208,6 @@ function loadProfile(profile) {
     });
 
 }
-
 
 /* =========================================================
    CARREGAR PERFIL DA API
