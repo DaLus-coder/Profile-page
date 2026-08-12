@@ -1,4 +1,4 @@
-const API = "https://profile-page-qid0.onrender.com";
+const API = "https://profile-page-qid0.onrender.com/api";
 
 
 /* =========================================================
