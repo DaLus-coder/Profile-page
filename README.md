@@ -1,55 +1,61 @@
-# Profile-page
-
-portfolio/
-│
-├── frontend/
-│   │
-│   ├── index.html
-│   ├── projetos.html
-│   ├── sobre.html
-│   │
-│   ├── css/
-│   │   ├── style.css
-│   │   ├── responsive.css
-│   │   └── animations.css
-│   │
-│   ├── js/
-│   │   ├── main.js
-│   │   ├── api.js
-│   │   ├── likes.js
-│   │   └── comments.js
-│   │
-│   └── assets/
-│       ├── images/
-│       ├── icons/
-│       └── fonts/
+PROFILE-PAGE/
 │
 ├── backend/
-│   │
-│   ├── server.js
-│   ├── package.json
-│   ├── .env
-│   ├── .env.example
-│   ├── .gitignore
-│   │
 │   ├── config/
-│   │   ├── database.js
-│   │   └── cloudinary.js
-│   │
-│   ├── routes/
-│   │   ├── likes.routes.js
-│   │   ├── comments.routes.js
-│   │   └── projects.routes.js
+│   │   ├── cloudinary.js
+│   │   └── database.js
 │   │
 │   ├── controllers/
-│   │   ├── likes.controller.js
 │   │   ├── comments.controller.js
+│   │   ├── likes.controller.js
 │   │   └── projects.controller.js
 │   │
 │   ├── middleware/
 │   │   └── errorHandler.js
 │   │
-│   └── utils/
-│       └── generateVisitorId.js
+│   ├── node_modules/
+│   │
+│   ├── routes/
+│   │   ├── comments.routes.js
+│   │   ├── likes.routes.js
+│   │   ├── profile.routes.js
+│   │   ├── projects.routes.js
+│   │   ├── skills.routes.js
+│   │   └── test.routes.js
+│   │
+│   ├── utils/
+│   │
+│   ├── .env
+│   ├── .gitignore
+│   ├── package-lock.json
+│   ├── package.json
+│   └── server.js
 │
+├── cms/
+│   ├── assets/
+│   ├── index.html
+│   ├── script.js
+│   └── style.css
+│
+├── frontend/
+│   ├── assets/
+│   │   ├── fonts/
+│   │   ├── icons/
+│   │   └── images/
+│   │
+│   ├── css/
+│   │   ├── animations.css
+│   │   ├── responsive.css
+│   │   └── style.css
+│   │
+│   └── js/
+│       ├── api.js
+│       ├── comments.js
+│       ├── likes.js
+│       └── main.js
+│
+├── index.html
+├── projetos.html
+├── sobre.html
+├── LICENSE
 └── README.md

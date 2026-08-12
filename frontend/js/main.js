@@ -147,7 +147,7 @@ revealElements.forEach(element => {
    PREPARAÇÃO PARA CMS
 ========================================================= */
 
-function loadProfile(data) {
+function loadProfile(profile) {
 
     const elements =
         document.querySelectorAll("[data-profile]");
@@ -159,13 +159,46 @@ function loadProfile(data) {
             element.dataset.profile;
 
 
+        let value;
+
+
+        switch (property) {
+
+            case "shortDescription":
+
+                value =
+                    profile.short_description;
+
+                break;
+
+
+            case "surname":
+
+                value =
+                    profile.name
+                        ?.trim()
+                        .split(" ")
+                        .slice(1)
+                        .join(" ");
+
+                break;
+
+
+            default:
+
+                value =
+                    profile[property];
+
+        }
+
+
         if (
-            data[property] !== undefined &&
-            data[property] !== null
+            value !== undefined &&
+            value !== null
         ) {
 
             element.textContent =
-                data[property];
+                value;
 
         }
 
@@ -174,39 +207,66 @@ function loadProfile(data) {
 }
 
 
-/*
-    Atualmente usamos os dados locais.
-
-    Futuramente:
-
-    fetch("/api/profile")
-        .then(response => response.json())
-        .then(data => loadProfile(data));
-*/
+/* =========================================================
+   CARREGAR PERFIL DA API
+========================================================= */
 
 async function carregarPerfil() {
 
     try {
 
-        const response = await fetch(`${API}/profile`);
+        const response =
+            await fetch(
+                `${API}/profile`
+            );
+
 
         if (!response.ok) {
-            throw new Error("Erro ao buscar perfil");
+
+            throw new Error(
+                "Erro ao buscar perfil"
+            );
+
         }
 
-        const data = await response.json();
 
-        console.log("Perfil recebido da API:", data);
+        const data =
+            await response.json();
 
-        loadProfile(data);
+
+        console.log(
+            "Perfil recebido da API:",
+            data
+        );
+
+
+        if (
+            !data.success ||
+            !data.profile
+        ) {
+
+            throw new Error(
+                "Perfil não encontrado na API"
+            );
+
+        }
+
+
+        loadProfile(
+            data.profile
+        );
+
 
     } catch (error) {
 
-        console.error("Erro ao carregar perfil:", error);
+        console.error(
+            "Erro ao carregar perfil:",
+            error
+        );
 
     }
 
 }
 
-carregarPerfil();
 
+carregarPerfil();
