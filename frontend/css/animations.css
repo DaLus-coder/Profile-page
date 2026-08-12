@@ -1,0 +1,65 @@
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes cursorBlink {
+
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes floatingCode {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes statusPulse {
+
+    0% {
+        box-shadow: 0 0 5px var(--accent);
+    }
+
+    50% {
+        box-shadow: 0 0 18px var(--accent);
+    }
+
+    100% {
+        box-shadow: 0 0 5px var(--accent);
+    }
+}
+
+
+.floating-code {
+    animation: floatingCode 4s ease-in-out infinite;
+}
+
+.code-two {
+    animation-delay: 1s;
+}
+
+.code-three {
+    animation-delay: 2s;
+}
+
+.status-indicator {
+    animation: statusPulse 2s infinite;
+}
