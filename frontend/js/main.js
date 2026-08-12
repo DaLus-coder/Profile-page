@@ -1,3 +1,5 @@
+const API = "https://profile-page-qid0.onrender.com/api";
+
 /* =========================================================
    MENU MOBILE
 ========================================================= */
@@ -140,30 +142,6 @@ revealElements.forEach(element => {
 
 ========================================================= */
 
-const profile = {
-
-    name: "Thiago",
-
-    surname: "Dutra",
-
-    age: 21,
-
-    role: "Full Stack Developer",
-
-    shortDescription:
-        "Desenvolvedor Full Stack especializado em criar experiências digitais modernas, sistemas web completos e aplicações interativas.",
-
-    about:
-        "Sou Thiago de Azevedo Dutra, desenvolvedor Full Stack apaixonado por tecnologia e desenvolvimento web.",
-
-    location:
-        "Brasil",
-
-    focus:
-        "Desenvolvimento de aplicações web, interfaces interativas e sistemas completos."
-
-};
-
 
 /* =========================================================
    PREPARAÇÃO PARA CMS
@@ -206,4 +184,29 @@ function loadProfile(data) {
         .then(data => loadProfile(data));
 */
 
-loadProfile(profile);
+async function carregarPerfil() {
+
+    try {
+
+        const response = await fetch(`${API}/profile`);
+
+        if (!response.ok) {
+            throw new Error("Erro ao buscar perfil");
+        }
+
+        const data = await response.json();
+
+        console.log("Perfil recebido da API:", data);
+
+        loadProfile(data);
+
+    } catch (error) {
+
+        console.error("Erro ao carregar perfil:", error);
+
+    }
+
+}
+
+carregarPerfil();
+
